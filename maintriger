@@ -1,124 +1,41 @@
-this addAction ["Испытать удачу", {        
-    params ["_target", "_caller"];        
-    _loot = everyContainer box_virtual_dobr;   
- if ( (count _loot)>0 ) then {   
-  _item = _loot select 0;   
-  if ( (count _item)>0 ) then {   
-   _form = _item select 0;   
-   if ( (count _form)>0 ) then {   
-    if ( _form == "U_I_Protagonist_VR"  ) then {   
-        
-     clearMagazineCargoGlobal box_virtual_dobr;   
-     clearWeaponCargoGlobal box_virtual_dobr;   
-     clearBackpackCargoGlobal box_virtual_dobr;   
-     clearItemCargoGlobal box_virtual_dobr;   
-     _rand = [1, 6] call BIS_fnc_randomInt; ;   
-     if ( _rand == 1) then {   
-      box_virtual_dobr addWeaponCargoGlobal ["LAGO_SCannon", 1];   
-      box_virtual_dobr addMagazineCargoGlobal ["LAGO_SCannon_MAG", 10];   
-     };   
-     if ( _rand == 2) then {   
-      box_virtual_dobr addItemCargoGlobal ["H_HelmetO_ViperSP_hex_F", 1];   
-     };   
-     if ( _rand == 3) then {   
-      box_virtual_dobr addItemCargoGlobal ["U_C_Protagonist_VR", 1];   
-     };   
-        
-     if ( _rand == 4) then {   
-      box_virtual_dobr addWeaponCargoGlobal ["LAGO_KU5K", 1];   
-      box_virtual_dobr addMagazineCargoGlobal ["LAGO_KU5K_MAG_H", 2];   
-      box_virtual_dobr addMagazineCargoGlobal ["LAGO_KU5K_MAG_T", 2];   
-      box_virtual_dobr addMagazineCargoGlobal ["LAGO_KU5K_MAG_buck", 2];   
-     };  
-    
- if ( _rand == 5) then {   
-      box_virtual_dobr addWeaponCargoGlobal ["LAGO_Biken", 1];   
-      box_virtual_dobr addMagazineCargoGlobal ["AP_MAG", 20];   
-      box_virtual_dobr addMagazineCargoGlobal ["HE_MAG", 20];    
-     };   
- if ( _rand == 6) then {   
-      box_virtual_dobr addWeaponCargoGlobal ["LAGO_CP", 1];   
-      box_virtual_dobr addMagazineCargoGlobal ["LAGO_CP_MAG", 10];   
-     };     
-if ( _rand == 7) then {   
-      box_virtual_dobr addWeaponCargoGlobal ["CUP_hgun_MP7", 1];   
-      box_virtual_dobr addMagazineCargoGlobal ["CUP_20Rnd_46x30_MP7", 10];   
-     };   
-        
+this addAction ["Испытать удачу", { 
+params ["_target", "_caller"];          
+_loot = everyContainer box_virtual_dobr;     
+ if ( (count _loot)>0 ) then {     
+  _item = _loot select 0;     
+	if ( (count _item)>0 ) then {     
+	_form = _item select 0;     
+	if ( (count _form)>0 ) then {     
+		if ( _form == "U_I_Protagonist_VR"  ) then {  
+			     clearMagazineCargoGlobal box_virtual_dobr;     
+				clearWeaponCargoGlobal box_virtual_dobr;     
+				clearBackpackCargoGlobal box_virtual_dobr;     
+				clearItemCargoGlobal box_virtual_dobr;   	
+			_rand = [1, 43] call BIS_fnc_randomInt;
+			if (_rand >= 1 && _rand <= 20) then {
+				box_virtual_dobr addItemCargoGlobal ["Land_Trophy_01_gold_F_Kit", _rand];   
+				};
 
-if ( _rand == 8) then {   
-       box_virtual_dobr addItemCargoGlobal ["Exile_Item_RubberDuck", 4];   
-     };   
+			if (_rand >= 21 && _rand <= 41) then {
+				box_virtual_dobr addItemCargoGlobal ["Exile_Item_RubberDuck", _rand-15]; 
+			};
+			if ( _rand == 42) then {     
+			box_virtual_dobr addItemCargoGlobal ["H_HelmetO_ViperSP_hex_F", 1];     
+			};     
+			if ( _rand == 43) then {     
+			box_virtual_dobr addItemCargoGlobal ["U_C_Protagonist_VR", 1];     
+			};     
 
-if ( _rand == 9) then {   
-       box_virtual_dobr addItemCargoGlobal ["Exile_Item_RubberDuck", 3];     
-     };   
-
-
-if ( _rand == 10) then {   
-       box_virtual_dobr addItemCargoGlobal ["Exile_Item_RubberDuck", 8];     
-     };   
-
-if ( _rand == 11) then {   
-       box_virtual_dobr addItemCargoGlobal ["Exile_Item_RubberDuck", 11];     
-     };   
-
-if ( _rand == 12) then {   
-       box_virtual_dobr addItemCargoGlobal ["Exile_Item_RubberDuck", 1];     
-     };   
- 
-if ( _rand == 13) then {   
-       box_virtual_dobr addItemCargoGlobal ["Exile_Item_RubberDuck", 5];     
-     };   
- 
-
-if ( _rand == 14) then {   
-       box_virtual_dobr addItemCargoGlobal ["Land_Trophy_01_gold_F_Kit", 3];     
-     };   
-
-
-if ( _rand == 15) then {   
-       box_virtual_dobr addItemCargoGlobal ["Land_Trophy_01_gold_F_Kit", 4];     
-     };   
-
-if ( _rand == 16) then {   
-       box_virtual_dobr addItemCargoGlobal ["Land_Trophy_01_gold_F_Kit", 2];     
-     };   
-
-	
-if ( _rand == 17) then {   
-       box_virtual_dobr addItemCargoGlobal ["Land_Trophy_01_gold_F_Kit", 1];     
-     };   
-
-	
-if ( _rand == 18) then {   
-       box_virtual_dobr addItemCargoGlobal ["Land_Trophy_01_gold_F_Kit", 5];     
-     };   
-	
-
-if ( _rand == 19) then {   
-       box_virtual_dobr addItemCargoGlobal ["Land_Trophy_01_gold_F_Kit", 6];     
-     };   
-
-
-if ( _rand == 20) then {   
-       box_virtual_dobr addItemCargoGlobal ["Land_Trophy_01_gold_F_Kit", 7];     
-     };   
-
-if ( _rand == 21) then {   
-       box_virtual_dobr addItemCargoGlobal ["Land_Trophy_01_gold_F_Kit", 8];     
-     };   
-     ["SuccessTitleAndText", [ "Проверь ящик, я оствил тебе подарок!"]] call ExileClient_gui_toaster_addTemplateToast;   
-    }; 
-	
-   };   
-  };   
- }else{   
-  ["SuccessTitleAndText", [ "В ящике нет VR, я все заберу бесплатно."]] call ExileClient_gui_toaster_addTemplateToast;  
-     clearMagazineCargoGlobal box_virtual_dobr;   
-     clearWeaponCargoGlobal box_virtual_dobr;   
-     clearBackpackCargoGlobal box_virtual_dobr;   
-     clearItemCargoGlobal box_virtual_dobr;     
- };   
-         
+		["SuccessTitleAndText", [ "Проверь ящик, я оствил тебе подарок!"]] call ExileClient_gui_toaster_addTemplateToast;     
+		};   
+	};     
+  };     
+ }else{     
+  ["SuccessTitleAndText", [ "В ящике нет VR, я все заберу бесплатно."]] call ExileClient_gui_toaster_addTemplateToast;    
+     clearMagazineCargoGlobal box_virtual_dobr;     
+     clearWeaponCargoGlobal box_virtual_dobr;     
+     clearBackpackCargoGlobal box_virtual_dobr;     
+     clearItemCargoGlobal box_virtual_dobr;       
+ };     
+           
 }];   
